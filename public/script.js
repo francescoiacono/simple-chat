@@ -15,8 +15,6 @@ form.addEventListener('submit', function (e) {
     });
 
     appendMessage(nicknameInput.value, messageInput.value);
-    messages.scrollTop = messages.scrollHeight;
-
     messageInput.value = '';
   }
 });
@@ -37,5 +35,5 @@ function appendMessage(nickname, message) {
   item.appendChild(nicknameItem);
   item.appendChild(document.createTextNode(message));
   messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
+  messages.scrollTop = messages.scrollHeight;
 }

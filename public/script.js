@@ -13,21 +13,29 @@ form.addEventListener('submit', function (e) {
       nickname: nicknameInput.value,
       msg: messageInput.value,
     });
+
+    appendMessage(nicknameInput.value, messageInput.value);
+    messages.scrollTop = messages.scrollHeight;
+
     messageInput.value = '';
   }
 });
 
 socket.on('connected', function () {
-  news.textContent = 'There may be some news here';
+  news.textContent = 'Remember: Be nice or your mum is a slug!';
 });
 
 socket.on('chat message', function (data) {
+  appendMessage(data.nickname, data.msg);
+});
+
+function appendMessage(nickname, message) {
   var item = document.createElement('li');
   var nicknameItem = document.createElement('span');
-  nicknameItem.textContent = data.nickname + ': ';
+  nicknameItem.textContent = nickname + ': ';
   nicknameItem.style.fontWeight = 'bold';
   item.appendChild(nicknameItem);
-  item.appendChild(document.createTextNode(data.msg));
+  item.appendChild(document.createTextNode(message));
   messages.appendChild(item);
   window.scrollTo(0, document.body.scrollHeight);
-});
+}

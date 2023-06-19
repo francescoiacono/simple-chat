@@ -45,6 +45,9 @@ input:focus {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow-y: auto;
+  height: calc(100vh - 6rem);
+  padding-top: 3rem;
 }
 #messages > li {
   padding: 0.5rem 1rem;
@@ -54,8 +57,31 @@ input:focus {
 }
 
 #news {
-  background: linear-gradient(45deg, #292929, #171717);
   color: #fff;
   padding: 0.75rem 1rem;
   margin: 0;
+}
+
+#news-container {
+  background: linear-gradient(45deg, #292929, #171717);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@keyframes news-ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.news-ticker {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: news-ticker 20s linear infinite;
 }

@@ -9,12 +9,11 @@ app.use(express.static('public'));
 
 io.on('connection', (socket) => {
   socket.on('connected', () => {
-    io.emit('connected', 'A user connected');
+    io.emit('connected');
   });
 
   socket.on('chat message', (data) => {
-    console.log('message', data);
-    io.emit('chat message', data);
+    socket.broadcast.emit('chat message', data);
   });
 });
 

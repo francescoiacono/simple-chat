@@ -20,7 +20,7 @@ form.addEventListener('submit', function (e) {
 });
 
 socket.on('connected', function () {
-  news.textContent = 'Remember: Be nice or your mum is a slug!';
+  news.textContent = 'Remember to be kind!';
 });
 
 socket.on('chat message', function (data) {

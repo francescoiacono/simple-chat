@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding-bottom: 3rem;
@@ -46,7 +50,7 @@ input:focus {
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 3rem);
   padding-top: 3rem;
 }
 #messages > li {
@@ -60,6 +64,7 @@ input:focus {
   color: #fff;
   padding: 0.75rem 1rem;
   margin: 0;
+  width: 100%;
 }
 
 #news-container {
@@ -69,6 +74,9 @@ input:focus {
   left: 0;
   right: 0;
   z-index: 1;
+  height: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes news-ticker {
@@ -83,5 +91,5 @@ input:focus {
 .news-ticker {
   white-space: nowrap;
   overflow: hidden;
-  animation: news-ticker 20s linear infinite;
+  animation: news-ticker 15s linear infinite;
 }

@@ -15,6 +15,14 @@ io.on('connection', (socket) => {
   socket.on('chat message', (data) => {
     socket.broadcast.emit('chat message', data);
   });
+
+  socket.on('typing', (data) => {
+    socket.broadcast.emit('typing', data);
+  });
+
+  socket.on('not typing', (data) => {
+    socket.broadcast.emit('not typing', data);
+  });
 });
 
 server.listen(3000, () => {
